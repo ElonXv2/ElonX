@@ -9,6 +9,7 @@
 	<link rel="icon" type="image" href="images/logo.png">
 	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel="stylesheet" href="css/swiper.min.css">
 	
 	<!-- This site is optimized with the Yoast SEO plugin v25.6 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>ElonX Ai | Create Greater Spaces</title>
@@ -703,7 +704,7 @@ Development by <strong>Jasper Ng</strong></p>
   
 <div class="homepage-parallax" id="pagepiling" data-loop="true">
         <!-- Section -->
-    <section class="section parallax pp-scrollable" style="background-image: url('images/Ai01.jpg');">
+    <section class="section parallax pp-scrollable" style="background-image: url(https://www.volferda.com/uploadfile/catalogues/E8_left%20side.jpg?v=20250731);">
       <div class="scroll-wrap">
         <div class="parallax__container">
           <div class="parallax__type">
@@ -1579,7 +1580,26 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/vacons.com.vn\/wp-admin\/
 </script>
 <script type="text/javascript" src="https://vacons.com.vn/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.5.2" id="elementor-pro-frontend-js"></script>
 <script type="text/javascript" src="https://vacons.com.vn/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.5.2" id="pro-preloaded-elements-handlers-js"></script>
-
+<script src="js/swiper.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
+    effect: 'fade',
+    speed: 500,
+    navigation: {
+      nextEl: '.elementor-swiper-button-next',
+      prevEl: '.elementor-swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
 </body>
 
 </html>
