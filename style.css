@@ -859,3 +859,46 @@ h1, h2, h3, h4 {
 
     /* ... other mobile specific styles ... */
 }
+
+
+@media (max-width: 768px) {
+  .parallax-section {
+    background-attachment: scroll !important;
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 100vh;
+  }
+
+  .parallax-hero, .parallax-hero {
+    background-attachment: scroll !important;
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 100vh;
+  }
+
+  .parallax-hero::before, .parallax-hero::before {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-content h1 {
+    font-size: 1.8em !important;
+  }
+
+  .hero-content p {
+    font-size: 1em !important;
+  }
+
+  #background-video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .house-model-card img,
+  .team-member-card img,
+  .gallery-slider img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+}
