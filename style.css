@@ -869,14 +869,14 @@ h1, h2, h3, h4 {
     min-height: 100vh;
   }
 
-  .parallax-hero, .parallax-hero {
+  .parallax-hero, .parallax-hero1 {
     background-attachment: scroll !important;
     background-size: cover !important;
     background-position: center !important;
     min-height: 100vh;
   }
 
-  .parallax-hero::before, .parallax-hero::before {
+  .parallax-hero::before, .parallax-hero1::before {
     background: rgba(0, 0, 0, 0.5);
   }
 
@@ -902,3 +902,11 @@ h1, h2, h3, h4 {
     object-fit: cover !important;
   }
 }
+
+.fade-on-scroll {
+    transition: opacity 0.2s ease-out;
+}
+.fade-on-scroll.fade-out {
+  opacity: 0;
+}
+
