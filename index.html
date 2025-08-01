@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +20,32 @@
             z-index: 1000;
             background-color: transparent;
         }
+
+        /* Additional styles for fade-out effect */
+        .fade-on-scroll {
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        .parallax-section {
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #background-video {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
+
 <body>
 
     <header class="fixed-header">
@@ -77,22 +102,45 @@
         </video>
     </section>
 
-    <!-- Additional Parallax Sections -->
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax1.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+    <!-- Additional Parallax Sections with fade-on-scroll class -->
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax1.jpg');"></div>
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax2.jpg');"></div>
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax3.jpg');"></div>
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax4.jpg');"></div>
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax5.jpg');"></div>
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax6.jpg');"></div>
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax7.jpg');"></div>
+    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax8.jpg');"></div>
 
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax2.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+    <script>
+        const fadeSections = document.querySelectorAll('.fade-on-scroll');
 
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax3.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+window.addEventListener('scroll', () => {
+    fadeSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionHeight = rect.height;
 
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax4.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+        // Calculate the visibility of the section based on scroll position
+        const fadeStart = window.innerHeight * 0.1;  // Start fading when 10% is visible
+        const fadeEnd = window.innerHeight * 0.9;    // Fully fade out by 90% of the viewport height
+        
+        // Check if the section is in the viewport
+        if (rect.top < fadeEnd && rect.bottom > fadeStart) {
+            // Calculate the amount of the section that's visible (0 = top, 1 = bottom)
+            const fadeAmount = (rect.top - fadeStart) / (fadeEnd - fadeStart);
+            
+            // Clamp the value between 0 and 1 (so we don't get negative opacity or opacity > 1)
+            const opacity = Math.min(Math.max(1 - fadeAmount, 0), 1);
+            
+            // Apply the opacity to the section
+            section.style.opacity = opacity;
+        } else {
+            // If the section is outside the fade zone, set opacity to 0 (fully faded out)
+            section.style.opacity = 0;
+        }
+    });
+});
 
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax5.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+</script>
 
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax6.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax7.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-
-    <div class="parallax-section" style="background-image: url('images/parallax/parallax8.jpg'); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-
-</body>
 </html>
