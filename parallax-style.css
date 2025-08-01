@@ -1,0 +1,59 @@
+.parallax-hero {
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-image: url('images/Ai03.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure hero content is above other sections if needed */
+}
+
+.parallax-hero1 {
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-image: url('images/Ai02.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure hero content is above other sections if needed */
+}
+
+/* Optional: Add an overlay to make the text more readable */
+.parallax-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place the overlay behind the text */
+}
+
+.parallax-hero1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place the overlay behind the text */
+}
+
+.hero-content {
+    color: white;
+    z-index: 2;
+}
