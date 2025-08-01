@@ -2,58 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Space Capsule House</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://t.co/Sj2AkLFbpB">
-    <link rel="stylesheet" href="parallax-style.css">
-    <style>
-        .fixed-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: transparent;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Space Capsule House</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="parallax-style.css" />
+  <style>
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: transparent;
+    }
 
-        /* Additional styles for fade-out effect */
-        .fade-on-scroll {
-            opacity: 1;
-            transition: opacity 1s ease-in-out;
-        }
+    .fade-on-scroll {
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
 
-        .fade-out {
-            opacity: 0;
-        }
+    .fade-out {
+      opacity: 0;
+    }
 
-        .parallax-section {
-            height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+    .parallax-section {
+      height: 100vh;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-        #background-video {
-            width: 100%;
-            height: auto;
-        }
-    </style>
+    #background-video {
+      width: 100%;
+      height: auto;
+    }
+
+    #mobile-menu {
+      display: none;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #mobile-menu.open {
+      display: block;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-black text-white font-inter">
 
-    <header class="fixed-header">
+  <!-- HEADER -->
+  <header class="fixed-header">
         <div class="container">
             <img src="images/logo.png" alt="ElonX Ai" id="main-logo">
             <nav></nav>
-        </div>
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+
+      <!-- Desktop Menu -->
+      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="rounded-md p-2 hover:bg-white transition-colors duration-300"></a>
             <ul class="hidden md:flex space-x-6 text-lg">
                 <li><a href="#home" class="hover:text-gray-300 transition-colors duration-300">Home</a></li>
@@ -63,84 +72,100 @@
                 <li><a href="#contact" class="hover:text-gray-300 transition-colors duration-300">Contact</a></li>
                 <li><a href="#team" class="hover:text-gray-300 transition-colors duration-300">Team</a></li>
             </ul>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none focus:text-gray-300">
-                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-90 text-white text-center py-4">
-            <ul class="flex flex-col space-y-4">
-                <li><a href="#home" class="block hover:bg-gray-700 py-2 px-4 rounded">Home</a></li>
-                <li><a href="#about" class="block hover:bg-gray-700 py-2 px-4 rounded">About</a></li>
-                <li><a href="#house-models" class="block hover:bg-gray-700 py-2 px-4 rounded">Models</a></li>
-                <li><a href="#gallery" class="block hover:bg-gray-700 py-2 px-4 rounded">Gallery</a></li>
-                <li><a href="#contact" class="block hover:bg-gray-700 py-2 px-4 rounded">Contact</a></li>
-                <li><a href="#team" class="block hover:bg-gray-700 py-2 px-4 rounded">Team</a></li>
-            </ul>
-        </div>
-    </header>
 
-    <div class="parallax-hero">
-        <div class="hero-content">
-            <h1 class="text-6xl font-bold text-white mb-4">ELON³ X</h1>
-            <p class="text-xl text-white">Etherneom Livingspace in an Open Nested Neomlinked Network Xperiment</p>
-        </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-white focus:outline-none">
+          <svg id="hamburger-icon" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16m-4 6h4"></path>
+          </svg>
+          <svg id="close-icon" class="h-8 w-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <div id="heroText" class="hero-content" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; opacity: 0; transition: opacity 1s;">
-        <h1>ELON³ X</h1>
-        <p>Etherneom Livingspace in an Open Nested Neomlinked Network Xperiment</p>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="md:hidden hidden bg-gray-900 bg-opacity-95 backdrop-blur-md text-white text-center py-6">
+      <ul class="flex flex-col space-y-4 text-lg font-medium">
+        <li><a href="#home" class="block hover:bg-gray-700 py-2 px-4 rounded">Home</a></li>
+        <li><a href="#about" class="block hover:bg-gray-700 py-2 px-4 rounded">About</a></li>
+        <li><a href="#house-models" class="block hover:bg-gray-700 py-2 px-4 rounded">Models</a></li>
+        <li><a href="#gallery" class="block hover:bg-gray-700 py-2 px-4 rounded">Gallery</a></li>
+        <li><a href="#contact" class="block hover:bg-gray-700 py-2 px-4 rounded">Contact</a></li>
+        <li><a href="#team" class="block hover:bg-gray-700 py-2 px-4 rounded">Team</a></li>
+      </ul>
     </div>
+  </header>
 
-    <section class="hero-section" id="home">
-        <video autoplay muted loop id="background-video">
-            <source src="background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </section>
+  <!-- HERO -->
+  <div class="parallax-hero">
+    <div class="hero-content text-center pt-40">
+      <h1 class="text-6xl font-bold text-white mb-4">ELON³ X</h1>
+      <p class="text-xl text-white">Etherneom Livingspace in an Open Nested Neomlinked Network Xperiment</p>
+    </div>
+  </div>
 
-    <!-- Additional Parallax Sections with fade-on-scroll class -->
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax1.jpg');"></div>
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax2.jpg');"></div>
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax3.jpg');"></div>
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax4.jpg');"></div>
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax5.jpg');"></div>
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax6.jpg');"></div>
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax7.jpg');"></div>
-    <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax8.jpg');"></div>
+  <div id="heroText" class="hero-content"
+    style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; opacity: 0; transition: opacity 1s;">
+    <h1>ELON³ X</h1>
+    <p>Etherneom Livingspace in an Open Nested Neomlinked Network Xperiment</p>
+  </div>
 
-    <script>
-        const fadeSections = document.querySelectorAll('.fade-on-scroll');
+  <section class="hero-section" id="home">
+    <video autoplay muted loop id="background-video">
+      <source src="background.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
 
-window.addEventListener('scroll', () => {
-    fadeSections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const sectionHeight = rect.height;
+  <!-- PARALLAX SECTIONS -->
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax1.jpg');"></div>
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax2.jpg');"></div>
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax3.jpg');"></div>
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax4.jpg');"></div>
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax5.jpg');"></div>
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax6.jpg');"></div>
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax7.jpg');"></div>
+  <div class="parallax-section fade-on-scroll" style="background-image: url('images/parallax/parallax8.jpg');"></div>
 
-        // Calculate the visibility of the section based on scroll position
-        const fadeStart = window.innerHeight * 0.1;  // Start fading when 10% is visible
-        const fadeEnd = window.innerHeight * 0.9;    // Fully fade out by 90% of the viewport height
-        
-        // Check if the section is in the viewport
-        if (rect.top < fadeEnd && rect.bottom > fadeStart) {
-            // Calculate the amount of the section that's visible (0 = top, 1 = bottom)
-            const fadeAmount = (rect.top - fadeStart) / (fadeEnd - fadeStart);
-            
-            // Clamp the value between 0 and 1 (so we don't get negative opacity or opacity > 1)
-            const opacity = Math.min(Math.max(1 - fadeAmount, 0), 1);
-            
-            // Apply the opacity to the section
-            section.style.opacity = opacity;
-        } else {
-            // If the section is outside the fade zone, set opacity to 0 (fully faded out)
-            section.style.opacity = 0;
-        }
+  <!-- JS: Menu + Fade-on-scroll -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      hamburgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
     });
-});
 
-</script>
+    // Fade on scroll effect
+    const fadeSections = document.querySelectorAll('.fade-on-scroll');
+
+    window.addEventListener('scroll', () => {
+      fadeSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const fadeStart = window.innerHeight * 0.1;
+        const fadeEnd = window.innerHeight * 0.9;
+
+        if (rect.top < fadeEnd && rect.bottom > fadeStart) {
+          const fadeAmount = (rect.top - fadeStart) / (fadeEnd - fadeStart);
+          const opacity = Math.min(Math.max(1 - fadeAmount, 0), 1);
+          section.style.opacity = opacity;
+        } else {
+          section.style.opacity = 0;
+        }
+      });
+    });
+  </script>
+</body>
 
 </html>
